@@ -2,7 +2,7 @@
 #include "UzytkownikMenedzer.h"
 
 void UzytkownikMenedzer::wczytajUzytkownikowZPliku() {
-    plikZUzytkownikami.wczytajUzytkownikowZPliku(uzytkownicy);
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 
 int UzytkownikMenedzer::pobierzIdNowegoUzytkownika() {
