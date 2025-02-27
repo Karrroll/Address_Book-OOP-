@@ -1,6 +1,10 @@
 #include "Uzytkownik.h"
 #include "UzytkownikMenedzer.h"
 
+void UzytkownikMenedzer::wczytajUzytkownikowZPliku() {
+    plikZUzytkownikami.wczytajUzytkownikowZPliku(uzytkownicy);
+}
+
 int UzytkownikMenedzer::pobierzIdNowegoUzytkownika() {
     if (uzytkownicy.empty() == true)
         return 1;
