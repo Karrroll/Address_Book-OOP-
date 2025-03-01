@@ -17,3 +17,7 @@ void KsiazkaAdresowa::wylogujUzytkownika() {
     idZalogowanegoUzytkownika = uzytkownikMenedzer.wylogujUzytkownika();
     cout << idZalogowanegoUzytkownika << endl;
 }
+
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
+    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
+}
