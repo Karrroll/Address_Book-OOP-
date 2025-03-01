@@ -3,7 +3,7 @@
 #include "MetodyWczytujace.h"
 
 int UzytkownikMenedzer::logowanieUzytkownika() {
-    Uzytkownik uzytkownik;
+    Uzytkownik uzytkownik;                                      //potrzebne?
     int idZalogowanegoUzytkownika = 0;
     string login = "", haslo = "";
 
@@ -40,6 +40,23 @@ int UzytkownikMenedzer::wylogujUzytkownika() {
     cout << "Zostales wylogowany." << endl;
 
     return idZalogowanegoUzytkownika;
+}
+
+void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika) {
+    string noweHaslo = "";
+    cout << "Podaj nowe haslo: ";
+    noweHaslo = MetodyWczytujace::wczytajLinie();
+
+    for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
+    {
+        if (itr -> pobierzId() == idZalogowanegoUzytkownika)
+        {
+            itr -> ustawHaslo(noweHaslo);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
 void UzytkownikMenedzer::wczytajUzytkownikowZPliku() {

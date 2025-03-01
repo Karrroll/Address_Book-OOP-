@@ -10,15 +10,16 @@ int main() {
     ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
 
     ksiazkaAdresowa.logowanieUzytkownika();
-    ksiazkaAdresowa.wylogujUzytkownika();
-    ksiazkaAdresowa.logowanieUzytkownika();
+
+    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+
     ksiazkaAdresowa.wylogujUzytkownika();
 
 
 //    ksiazkaAdresowa.rejestracjaUzytkownika();
 //    ksiazkaAdresowa.rejestracjaUzytkownika();
 //
-//    ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
+    ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
 
 
 
