@@ -21,17 +21,24 @@ int UzytkownikMenedzer::logowanieUzytkownika() {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     idZalogowanegoUzytkownika = itr -> pobierzId();
-                    return idZalogowanegoUzytkownika;
+                    return idZalogowanegoUzytkownika;                   // setter
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
-            return idZalogowanegoUzytkownika;
+            return idZalogowanegoUzytkownika;                           // setter
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
+    return idZalogowanegoUzytkownika;                                   // setter
+}
+
+int UzytkownikMenedzer::wylogujUzytkownika() {
+    int idZalogowanegoUzytkownika = 0;          // setter
+    cout << "Zostales wylogowany." << endl;
+
     return idZalogowanegoUzytkownika;
 }
 
