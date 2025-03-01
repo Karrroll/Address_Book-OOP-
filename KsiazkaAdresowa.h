@@ -8,6 +8,7 @@
 using namespace std;
 
 class KsiazkaAdresowa {
+    int idZalogowanegoUzytkownika;
     UzytkownikMenedzer uzytkownikMenedzer;
 
 public:
@@ -16,6 +17,7 @@ public:
     };
     void rejestracjaUzytkownika();
     void wypiszWszytskichUzytkownikow();
+    void logowanieUzytkownika();
 };
 
 #endif

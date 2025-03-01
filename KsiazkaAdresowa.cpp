@@ -7,3 +7,8 @@ void KsiazkaAdresowa::rejestracjaUzytkownika() {
 void KsiazkaAdresowa::wypiszWszytskichUzytkownikow() {
     uzytkownikMenedzer.wypiszWszytskichUzytkownikow();
 }
+
+void KsiazkaAdresowa::logowanieUzytkownika() {
+    idZalogowanegoUzytkownika = uzytkownikMenedzer.logowanieUzytkownika();
+    cout << idZalogowanegoUzytkownika << endl;
+}

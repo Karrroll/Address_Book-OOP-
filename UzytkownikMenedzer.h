@@ -12,7 +12,7 @@ using namespace std;
 
 class UzytkownikMenedzer {
     PlikZUzytkownikami plikZUzytkownikami;
-    int idZalogowanegoUzytkownika;
+//    int idZalogowanegoUzytkownika;        utworzylem lokalnie
     vector <Uzytkownik> uzytkownicy;
 
 
@@ -25,6 +25,7 @@ public:
     void rejestracjaUzytkownika();
     void wczytajUzytkownikowZPliku();
     void wypiszWszytskichUzytkownikow();
+    int logowanieUzytkownika();
 
 };
 
