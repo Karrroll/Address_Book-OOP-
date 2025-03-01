@@ -1,5 +1,46 @@
 #include "Uzytkownik.h"
 #include "UzytkownikMenedzer.h"
+#include "MetodyWczytujace.h"
+
+int UzytkownikMenedzer::logowanieUzytkownika() {
+    Uzytkownik uzytkownik;
+    int idZalogowanegoUzytkownika = 0;
+    string login = "", haslo = "";
+
+    cout << endl << "Podaj login: ";
+    login = MetodyWczytujace::wczytajLinie();
+
+    vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
+    while (itr != uzytkownicy.end()) {
+        if (itr -> pobierzLogin() == login) {
+            for (int iloscProb = 3; iloscProb > 0; iloscProb--) {
+                cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
+                haslo = MetodyWczytujace::wczytajLinie();
+
+                if (itr -> pobierzHaslo() == haslo) {
+                    cout << endl << "Zalogowales sie." << endl << endl;
+                    system("pause");
+                    idZalogowanegoUzytkownika = itr -> pobierzId();
+                    return idZalogowanegoUzytkownika;                   // setter
+                }
+            }
+            cout << "Wprowadzono 3 razy bledne haslo." << endl;
+            system("pause");
+            return idZalogowanegoUzytkownika;                           // setter
+        }
+        itr++;
+    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return idZalogowanegoUzytkownika;                                   // setter
+}
+
+int UzytkownikMenedzer::wylogujUzytkownika() {
+    int idZalogowanegoUzytkownika = 0;          // setter
+    cout << "Zostales wylogowany." << endl;
+
+    return idZalogowanegoUzytkownika;
+}
 
 void UzytkownikMenedzer::wczytajUzytkownikowZPliku() {
     uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
