@@ -14,7 +14,7 @@ void KsiazkaAdresowa::logowanieUzytkownika() {
     idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
     adresatMenedzer.ustawIdZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
 
-//    adresatMenedzer.pobierzAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+    adresatMenedzer.pobierzAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 
     cout << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
 }
