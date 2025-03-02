@@ -6,8 +6,9 @@
 using namespace std;
 
 class AdresatMenedzer {
-
+    int idZalogowanegoUzytkownika;
 public:
+    void ustawIdZalogowanegoUzytkownika(int idAktualnieZalogowanegoUzytkownika);
 
 };
 

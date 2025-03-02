@@ -2,9 +2,12 @@
 #include "UzytkownikMenedzer.h"
 #include "MetodyWczytujace.h"
 
-int UzytkownikMenedzer::logowanieUzytkownika() {
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
+    return idZalogowanegoUzytkownika;
+}
+
+void UzytkownikMenedzer::logowanieUzytkownika() {
     Uzytkownik uzytkownik;                                      //potrzebne?
-    int idZalogowanegoUzytkownika = 0;
     string login = "", haslo = "";
 
     cout << endl << "Podaj login: ";
@@ -21,35 +24,36 @@ int UzytkownikMenedzer::logowanieUzytkownika() {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     idZalogowanegoUzytkownika = itr -> pobierzId();
-                    return idZalogowanegoUzytkownika;                   // setter
+                    return;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
-            return idZalogowanegoUzytkownika;                           // setter
+            idZalogowanegoUzytkownika = 0;
+            return;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-    return idZalogowanegoUzytkownika;                                   // setter
+    idZalogowanegoUzytkownika = 0;
+    return;
 }
 
-int UzytkownikMenedzer::wylogujUzytkownika() {
-    int idZalogowanegoUzytkownika = 0;          // setter
+void UzytkownikMenedzer::wylogujUzytkownika() {
     cout << "Zostales wylogowany." << endl;
 
-    return idZalogowanegoUzytkownika;
+    idZalogowanegoUzytkownika = 0;
 }
 
-void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika) {
+void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
     noweHaslo = MetodyWczytujace::wczytajLinie();
 
     for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
     {
-        if (itr -> pobierzId() == idZalogowanegoUzytkownika)
+        if (itr -> pobierzId() == pobierzIdZalogowanegoUzytkownika())                   //przypisz raz i porownuj???
         {
             itr -> ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
