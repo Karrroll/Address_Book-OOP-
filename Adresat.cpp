@@ -1,5 +1,33 @@
 #include "Adresat.h"
 
+int Adresat::pobierzId() {
+    return id;
+}
+
+int Adresat::pobierzIdUzytkownika() {
+    return idUzytkownika;
+}
+
+string Adresat::pobierzImie() {
+    return imie;
+}
+
+string Adresat::pobierzNazwisko() {
+    return nazwisko;
+}
+
+string Adresat::pobierzNumerTelefonu() {
+    return numerTelefonu;
+}
+
+string Adresat::pobierzEmail() {
+    return email;
+}
+
+string Adresat::pobierzAdres() {
+    return adres;
+}
+
 void Adresat::ustawId(int noweId) {
     id = noweId;
 }

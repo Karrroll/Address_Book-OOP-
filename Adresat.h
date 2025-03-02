@@ -10,6 +10,14 @@ class Adresat {
     string imie, nazwisko, numerTelefonu, email, adres;
 
 public:
+    int pobierzId();
+    int pobierzIdUzytkownika();                             //wyrzuc
+    string pobierzImie();
+    string pobierzNazwisko();
+    string pobierzNumerTelefonu();
+    string pobierzEmail();
+    string pobierzAdres();
+
     void ustawId(int noweId);
     void ustawIdUzytkownika(int noweIdUzytkownika);
     void ustawImie(string noweImie);
