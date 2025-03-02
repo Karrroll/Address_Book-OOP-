@@ -9,7 +9,7 @@
 using namespace std;
 
 class KsiazkaAdresowa {
-    int idZalogowanegoUzytkownika;
+//    int idZalogowanegoUzytkownika;
     UzytkownikMenedzer uzytkownikMenedzer;
     AdresatMenedzer adresatMenedzer;
 

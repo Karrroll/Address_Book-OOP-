@@ -4,6 +4,16 @@ void AdresatMenedzer::ustawIdZalogowanegoUzytkownika(int idAktualnieZalogowanego
     idZalogowanegoUzytkownika = idAktualnieZalogowanegoUzytkownika;                              //walidacja?
 }
 
-void AdresatMenedzer::pobierzAdresatowZalogowanegoUzytkownikaZPliku(int id) {
-    plikZAdresatami.pobierzAdresatowZalogowanegoUzytkownikaZPliku(id);
+int AdresatMenedzer::pobierzIdOstatniegoAdresata() {
+    return idOstatniegoAdresata;
+}
+
+void AdresatMenedzer::ustawIdOstatniegoAdresata(int noweIdOstatniegoAdresata) {
+    idOstatniegoAdresata = noweIdOstatniegoAdresata;
+}
+
+void AdresatMenedzer::pobierzAdresatowZalogowanegoUzytkownikaZPliku() {
+    PlikZAdresatami plikZAdresatami;
+    ustawIdOstatniegoAdresata(plikZAdresatami.pobierzAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika));
+    cout << pobierzIdOstatniegoAdresata() << endl;
 }

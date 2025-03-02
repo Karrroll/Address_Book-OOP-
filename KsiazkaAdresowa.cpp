@@ -11,18 +11,12 @@ void KsiazkaAdresowa::wypiszWszytskichUzytkownikow() {
 void KsiazkaAdresowa::logowanieUzytkownika() {
     uzytkownikMenedzer.logowanieUzytkownika();
 
-    idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
-    adresatMenedzer.ustawIdZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
-
-    adresatMenedzer.pobierzAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-
-    cout << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
+    adresatMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    adresatMenedzer.pobierzAdresatowZalogowanegoUzytkownikaZPliku();
 }
 
 void KsiazkaAdresowa::wylogujUzytkownika() {
     uzytkownikMenedzer.wylogujUzytkownika();
-
-    cout << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
 }
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {

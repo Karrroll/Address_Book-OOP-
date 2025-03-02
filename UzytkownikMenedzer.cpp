@@ -23,7 +23,7 @@ void UzytkownikMenedzer::logowanieUzytkownika() {
                 if (itr -> pobierzHaslo() == haslo) {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    idZalogowanegoUzytkownika = itr -> pobierzId();
+                    idZalogowanegoUzytkownika = itr -> pobierzId();                     //setter??? z walidacja?
                     return;
                 }
             }

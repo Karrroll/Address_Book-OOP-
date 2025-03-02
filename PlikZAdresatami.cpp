@@ -1,32 +1,31 @@
 #include "PlikZAdresatami.h"
 
-int PlikZAdresatami::pobierzAdresatowZalogowanegoUzytkownikaZPliku(int id) {                                                            // zwracac id ostatniego czy void?
+int PlikZAdresatami::pobierzAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika) {
     int idOstatniegoAdresata = 0;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
+    Adresat adresat;
 
     fstream plikTekstowy;
     plikTekstowy.open("Adresaci.txt", ios::in);
 
     if (plikTekstowy.good() == true) {
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {
-            if(id == pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami)) {
+            if(idZalogowanegoUzytkownika == pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami)) {
                 adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
                 adresaci.push_back(adresat);
             }
         }
-        cout << "tutaj -> " << adresaci.size() << endl;
         daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
     } else
         cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
 
     plikTekstowy.close();
 
-    if (daneOstaniegoAdresataWPliku != "") {
+    if (daneOstaniegoAdresataWPliku != "")
         idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
-        return idOstatniegoAdresata;
-    } else
-        return 0;
+
+    return idOstatniegoAdresata;
 }
 
 int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) {

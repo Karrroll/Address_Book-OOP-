@@ -1,6 +1,7 @@
 #ifndef AdresatMenedzer_H
 #define AdresatMenedzer_H
 
+#include "UzytkownikMenedzer.h"
 #include "PlikZAdresatami.h"
 #include <iostream>
 
@@ -8,11 +9,13 @@ using namespace std;
 
 class AdresatMenedzer {
     int idZalogowanegoUzytkownika;
-    PlikZAdresatami plikZAdresatami;
+    int idOstatniegoAdresata;
 
 public:
+    int pobierzIdOstatniegoAdresata();
     void ustawIdZalogowanegoUzytkownika(int idAktualnieZalogowanegoUzytkownika);
-    void pobierzAdresatowZalogowanegoUzytkownikaZPliku(int id);
+    void ustawIdOstatniegoAdresata(int noweIdOstatniegoAdresata);
+    void pobierzAdresatowZalogowanegoUzytkownikaZPliku();
 
 };
 
