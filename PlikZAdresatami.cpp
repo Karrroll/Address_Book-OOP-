@@ -79,3 +79,33 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
     }
     return adresat;
 }
+
+void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat) {
+    string liniaZDanymiAdresata = "";
+    PlikZAdresatami plikZAdresatami;
+
+    fstream plikTekstowy;
+    plikTekstowy.open("Adresaci.txt", ios::out | ios::app);
+
+    if (plikTekstowy.good() == true) {
+        liniaZDanymiAdresata = MetodyPomocnicze::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+
+        if (plikZAdresatami.czyPlikJestPusty((plikTekstowy)) == true) {
+            plikTekstowy << liniaZDanymiAdresata;
+        } else {
+            plikTekstowy << endl << liniaZDanymiAdresata ;
+        }
+    } else {
+        cout << "Nie udalo sie otworzyc pliku i zapisac w nim danych." << endl;
+    }
+    plikTekstowy.close();
+    system("pause");
+}
+
+bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy) {
+    plikTekstowy.seekg(0, ios::end);
+    if (plikTekstowy.tellg() == 0)
+        return true;
+    else
+        return false;
+}

@@ -9,7 +9,7 @@ class Adresat {
     int id, idUzytkownika;
     string imie, nazwisko, numerTelefonu, email, adres;
 
-public:
+public:                                                     //kobstruktor?
     int pobierzId();
     int pobierzIdUzytkownika();                             //wyrzuc
     string pobierzImie();
