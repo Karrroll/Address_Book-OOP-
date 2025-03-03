@@ -9,7 +9,6 @@
 using namespace std;
 
 class KsiazkaAdresowa {
-//    int idZalogowanegoUzytkownika;
     UzytkownikMenedzer uzytkownikMenedzer;
     AdresatMenedzer adresatMenedzer;
 
@@ -23,6 +22,7 @@ public:
     void wylogujUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
+    void dodajAdresata();
 };
 
 #endif

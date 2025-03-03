@@ -41,3 +41,41 @@ void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat) {
     cout << "Email:              " << adresat.pobierzEmail() << endl;
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
 }
+
+void AdresatMenedzer::dodajAdresata() {
+    Adresat adresat;
+    PlikZAdresatami plikZAdresatami;
+
+    system("cls");
+    cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
+    adresat = podajDaneNowegoAdresata();
+
+    adresaci.push_back(adresat);
+    plikZAdresatami.dopiszAdresataDoPliku(adresat);
+
+    ustawIdOstatniegoAdresata(idOstatniegoAdresata + 1);
+}
+
+Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
+    Adresat adresat;
+
+    adresat.ustawId(pobierzIdOstatniegoAdresata() + 1);
+    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
+
+    cout << "Podaj imie: ";
+    adresat.ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyWczytujace::wczytajLinie()));
+
+    cout << "Podaj nazwisko: ";
+    adresat.ustawNazwisko(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyWczytujace::wczytajLinie()));
+
+    cout << "Podaj numer telefonu: ";
+    adresat.ustawNumerTelefonu(MetodyWczytujace::wczytajLinie());
+
+    cout << "Podaj email: ";
+    adresat.ustawEmail(MetodyWczytujace::wczytajLinie());
+
+    cout << "Podaj adres: ";
+    adresat.ustawAdres(MetodyWczytujace::wczytajLinie());
+
+    return adresat;
+}

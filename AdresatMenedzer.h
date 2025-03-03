@@ -3,8 +3,8 @@
 
 #include "UzytkownikMenedzer.h"
 #include "PlikZAdresatami.h"
-
 #include "Adresat.h"
+#include "MetodyWczytujace.h"
 
 #include <iostream>
 #include <vector>
@@ -23,8 +23,9 @@ public:
     void pobierzAdresatowZalogowanegoUzytkownikaZPliku();
     void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
     void wyswietlDaneAdresata(Adresat adresat);
+    void dodajAdresata();
+    Adresat podajDaneNowegoAdresata();
 
 };
 
 #endif
-
