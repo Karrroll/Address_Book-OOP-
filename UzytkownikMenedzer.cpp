@@ -1,13 +1,11 @@
-#include "Uzytkownik.h"
 #include "UzytkownikMenedzer.h"
-#include "MetodyWczytujace.h"
 
 int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
     return idZalogowanegoUzytkownika;
 }
 
-void UzytkownikMenedzer::logowanieUzytkownika() {
-    Uzytkownik uzytkownik;                                      //potrzebne?
+int UzytkownikMenedzer::logowanieUzytkownika() {
+    int idZalogowanegoUzytkownika = 0;
     string login = "", haslo = "";
 
     cout << endl << "Podaj login: ";
@@ -15,29 +13,27 @@ void UzytkownikMenedzer::logowanieUzytkownika() {
 
     vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
     while (itr != uzytkownicy.end()) {
-        if (itr -> pobierzLogin() == login) {
+        if ((*itr).pobierzLogin() == login) {
             for (int iloscProb = 3; iloscProb > 0; iloscProb--) {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
                 haslo = MetodyWczytujace::wczytajLinie();
 
-                if (itr -> pobierzHaslo() == haslo) {
+                if ((*itr).pobierzHaslo() == haslo) {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    idZalogowanegoUzytkownika = itr -> pobierzId();                     //setter??? z walidacja?
-                    return;
+                    idZalogowanegoUzytkownika = (*itr).pobierzId();
+                    return idZalogowanegoUzytkownika;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
-            idZalogowanegoUzytkownika = 0;
-            return;
+            return idZalogowanegoUzytkownika;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-    idZalogowanegoUzytkownika = 0;
-    return;
+    return idZalogowanegoUzytkownika;
 }
 
 void UzytkownikMenedzer::wylogujUzytkownika() {
@@ -53,9 +49,9 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
 
     for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
     {
-        if (itr -> pobierzId() == pobierzIdZalogowanegoUzytkownika())                   //przypisz raz i porownuj???
+        if ((*itr).pobierzId() == pobierzIdZalogowanegoUzytkownika())                   //przypisz raz i porownuj???
         {
-            itr -> ustawHaslo(noweHaslo);
+            (*itr).ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
         }

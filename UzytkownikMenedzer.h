@@ -4,7 +4,6 @@
 #include <iostream>
 #include <vector>
 
-#include "Uzytkownik.h"
 #include "PlikZUzytkownikami.h"
 #include "MetodyWczytujace.h"
 
@@ -26,7 +25,7 @@ public:
     void rejestracjaUzytkownika();
     void wczytajUzytkownikowZPliku();
     void wypiszWszytskichUzytkownikow();
-    void logowanieUzytkownika();
+    int logowanieUzytkownika();
     void wylogujUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
 

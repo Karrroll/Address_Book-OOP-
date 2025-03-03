@@ -13,19 +13,15 @@ using namespace std;
 
 class AdresatMenedzer {
     int idZalogowanegoUzytkownika;
-    int idOstatniegoAdresata;
     vector <Adresat> adresaci;
 
 public:
-    int pobierzIdOstatniegoAdresata();
     void ustawIdZalogowanegoUzytkownika(int idAktualnieZalogowanegoUzytkownika);
-    void ustawIdOstatniegoAdresata(int noweIdOstatniegoAdresata);
-    void pobierzAdresatowZalogowanegoUzytkownikaZPliku();
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
     void wyswietlDaneAdresata(Adresat adresat);
     void dodajAdresata();
     Adresat podajDaneNowegoAdresata();
-
 };
 
 #endif

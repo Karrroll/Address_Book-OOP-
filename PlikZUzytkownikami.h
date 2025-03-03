@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include <vector>
 
-#include "Uzytkownik.h"         // mozna usunac bo jest guard
+#include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
 
 using namespace std;
