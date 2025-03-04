@@ -2,18 +2,18 @@
 #define UzytkownikMenedzer_H
 
 #include <iostream>
-#include <vector>
 
 #include "PlikZUzytkownikami.h"
 #include "MetodyWczytujace.h"
 
 using namespace std;
 
+class AdresatMenedzer;          //zapowiedz klasy i u¿ycie wskaznika w polu klasy. Przez zaleznosci cykliczne?
 class UzytkownikMenedzer {
-    PlikZUzytkownikami plikZUzytkownikami;
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
-
+    PlikZUzytkownikami plikZUzytkownikami;
+    AdresatMenedzer *adresatMenedzer;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
@@ -22,13 +22,13 @@ class UzytkownikMenedzer {
 public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
     int pobierzIdZalogowanegoUzytkownika();
+
     void rejestracjaUzytkownika();
     void wczytajUzytkownikowZPliku();
     void wypiszWszytskichUzytkownikow();
-    int logowanieUzytkownika();
+    void logowanieUzytkownika();
     void wylogujUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
-
 };
 
 #endif

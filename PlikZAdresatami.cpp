@@ -91,7 +91,7 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(Adresat adresat, string daneAdresat
 
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat) {
     string liniaZDanymiAdresata = "";
-    PlikZAdresatami plikZAdresatami;
+ //   PlikZAdresatami plikZAdresatami;
 
     fstream plikTekstowy;
     plikTekstowy.open("Adresaci.txt", ios::out | ios::app);

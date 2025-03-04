@@ -4,10 +4,8 @@
 #include "UzytkownikMenedzer.h"
 #include "PlikZAdresatami.h"
 #include "Adresat.h"
-#include "MetodyWczytujace.h"
 
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -15,13 +13,15 @@ class AdresatMenedzer {
     int idZalogowanegoUzytkownika;
     vector <Adresat> adresaci;
 
+    Adresat podajDaneNowegoAdresata();
+    void wyswietlDaneAdresata(Adresat adresat);
+
 public:
-    void ustawIdZalogowanegoUzytkownika(int idAktualnieZalogowanegoUzytkownika);
+    void ustawIdZalogowanegoUzytkownika(int id);
+
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
-    void wyswietlDaneAdresata(Adresat adresat);
     void dodajAdresata();
-    Adresat podajDaneNowegoAdresata();
 };
 
 #endif

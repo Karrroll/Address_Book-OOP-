@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <cstdlib>
 #include <vector>
 
 #include "Uzytkownik.h"
@@ -24,5 +23,4 @@ public:
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
     void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy);
 };
-
 #endif
