@@ -1,11 +1,10 @@
 #include "UzytkownikMenedzer.h"
-#include "AdresatMenedzer.h"
 
 int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
     return idZalogowanegoUzytkownika;
 }
 
-void UzytkownikMenedzer::logowanieUzytkownika() {
+void UzytkownikMenedzer::logowanieUzytkownika(AdresatMenedzer &adresatMenedzer) {
     string login = "", haslo = "";
 
     cout << endl << "Podaj login: ";
@@ -21,20 +20,20 @@ void UzytkownikMenedzer::logowanieUzytkownika() {
                 if (itr->pobierzHaslo() == haslo) {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    adresatMenedzer->ustawIdZalogowanegoUzytkownika(itr->pobierzId());
+                    adresatMenedzer.ustawIdZalogowanegoUzytkownika(itr->pobierzId());
                     return;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
-            adresatMenedzer->ustawIdZalogowanegoUzytkownika(0);
+            adresatMenedzer.ustawIdZalogowanegoUzytkownika(0);
             return;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-    adresatMenedzer->ustawIdZalogowanegoUzytkownika(0);
+    adresatMenedzer.ustawIdZalogowanegoUzytkownika(0);
     return;
 }
 
@@ -66,7 +65,7 @@ void UzytkownikMenedzer::wczytajUzytkownikowZPliku() {
 }
 
 int UzytkownikMenedzer::pobierzIdNowegoUzytkownika() {
-    if (uzytkownicy.empty() == true)
+    if (uzytkownicy.empty())
         return 1;
     else
         return uzytkownicy.back().pobierzId() + 1;
@@ -101,7 +100,7 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika() {
     do {
         cout << "Podaj login: ";
         uzytkownik.ustawLogin(MetodyWczytujace::wczytajLinie());
-    } while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
+    } while (czyIstniejeLogin(uzytkownik.pobierzLogin()));
 
     cout << "Podaj haslo: ";
     uzytkownik.ustawHaslo(MetodyWczytujace::wczytajLinie());

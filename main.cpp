@@ -9,17 +9,17 @@ int main() {
 
     ksiazkaAdresowa.logowanieUzytkownika();
     ksiazkaAdresowa.dodajAdresata();
-    ksiazkaAdresowa.dodajAdresata();
+//    ksiazkaAdresowa.dodajAdresata();
 //    ksiazkaAdresowa.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
-    ksiazkaAdresowa.wylogujUzytkownika();
+//    ksiazkaAdresowa.wylogujUzytkownika();
 //    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
 //    ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
-    ksiazkaAdresowa.logowanieUzytkownika();
-    ksiazkaAdresowa.dodajAdresata();
-    ksiazkaAdresowa.wylogujUzytkownika();
-    ksiazkaAdresowa.logowanieUzytkownika();
-    ksiazkaAdresowa.dodajAdresata();
+//    ksiazkaAdresowa.logowanieUzytkownika();
+//    ksiazkaAdresowa.dodajAdresata();
+//    ksiazkaAdresowa.wylogujUzytkownika();
+//    ksiazkaAdresowa.logowanieUzytkownika();
+//    ksiazkaAdresowa.dodajAdresata();
     ksiazkaAdresowa.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
-    ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
+//    ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
     return 0;
 }

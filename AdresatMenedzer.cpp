@@ -2,10 +2,11 @@
 
 void AdresatMenedzer::ustawIdZalogowanegoUzytkownika(int id) {
     idZalogowanegoUzytkownika = id;
+system("pause");
 }
 
 void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku() {
-    PlikZAdresatami plikZAdresatami;
+//    PlikZAdresatami plikZAdresatami;
     adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 }
 
@@ -35,7 +36,7 @@ void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat) {
 }
 
 void AdresatMenedzer::dodajAdresata() {
-    PlikZAdresatami plikZAdresatami;
+//    PlikZAdresatami plikZAdresatami;
     Adresat adresat;
 
     system("cls");
@@ -45,11 +46,11 @@ void AdresatMenedzer::dodajAdresata() {
     adresaci.push_back(adresat);
     plikZAdresatami.dopiszAdresataDoPliku(adresat);
 
-    plikZAdresatami.ustawIdOstatniegoAdresata(plikZAdresatami.pobierzIdOstatniegoAdresata() + 1);
+    plikZAdresatami.ustawIdOstatniegoAdresata(adresat.pobierzId() + 1);
 }
 
 Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
-    PlikZAdresatami plikZAdresatami;
+//    PlikZAdresatami plikZAdresatami;
     Adresat adresat;
 
     adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata() + 1);

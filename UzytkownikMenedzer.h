@@ -4,16 +4,18 @@
 #include <iostream>
 
 #include "PlikZUzytkownikami.h"
+#include "AdresatMenedzer.h"
 #include "MetodyWczytujace.h"
 
 using namespace std;
 
-class AdresatMenedzer;          //zapowiedz klasy i u¿ycie wskaznika w polu klasy. Przez zaleznosci cykliczne?
+//class AdresatMenedzer;          //zapowiedz klasy i u¿ycie wskaznika w polu klasy. Przez zaleznosci cykliczne?
 class UzytkownikMenedzer {
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
     PlikZUzytkownikami plikZUzytkownikami;
-    AdresatMenedzer *adresatMenedzer;
+//    AdresatMenedzer *adresatMenedzer;
+AdresatMenedzer adresatMenedzer;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
@@ -26,7 +28,7 @@ public:
     void rejestracjaUzytkownika();
     void wczytajUzytkownikowZPliku();
     void wypiszWszytskichUzytkownikow();
-    void logowanieUzytkownika();
+    void logowanieUzytkownika(AdresatMenedzer &adresatMenedzer);
     void wylogujUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
 };
