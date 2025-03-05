@@ -7,8 +7,7 @@ using namespace std;
 
 class Uzytkownik {
     int id;
-    string login;
-    string haslo;
+    string login, haslo;
 
 public:
     int pobierzId();

@@ -1,0 +1,5 @@
+1|1|Damian|Cabel|099090909|@wp.pl|oslo|
+2|1|Ketil|Shetil|123123123|@wp.pl|oslo|
+3|5|Z|Z|z|z|z|
+4|8|Ms|Ms|ms|Mss|sa|
+5|1|Po|Po|po|po|po|

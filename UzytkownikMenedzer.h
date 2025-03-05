@@ -2,19 +2,18 @@
 #define UzytkownikMenedzer_H
 
 #include <iostream>
-#include <vector>
 
-#include "Uzytkownik.h"
 #include "PlikZUzytkownikami.h"
+#include "AdresatMenedzer.h"
 #include "MetodyWczytujace.h"
 
 using namespace std;
 
 class UzytkownikMenedzer {
-    PlikZUzytkownikami plikZUzytkownikami;
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
-
+    PlikZUzytkownikami plikZUzytkownikami;
+    AdresatMenedzer adresatMenedzer;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
@@ -23,13 +22,13 @@ class UzytkownikMenedzer {
 public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
     int pobierzIdZalogowanegoUzytkownika();
+
     void rejestracjaUzytkownika();
     void wczytajUzytkownikowZPliku();
     void wypiszWszytskichUzytkownikow();
-    void logowanieUzytkownika();
+    void logowanieUzytkownika(AdresatMenedzer &adresatMenedzer);
     void wylogujUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
-
 };
 
 #endif

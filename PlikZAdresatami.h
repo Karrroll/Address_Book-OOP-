@@ -1,29 +1,34 @@
 #ifndef PlikZAdresatami_H
 #define PlikZAdresatami_H
 
-#include "UzytkownikMenedzer.h"
-#include "AdresatMenedzer.h"
+//#include "AdresatMenedzer.h"
 #include "Adresat.h"
-#include "MetodyWczytujace.h"
 #include "MetodyPomocnicze.h"
+#include "MetodyWczytujace.h"
 
 #include <iostream>
-#include <string>
+#include <fstream>
 #include <vector>
-#include <cstdlib>
 
 using namespace std;
 
 class PlikZAdresatami {
-    bool czyPlikJestPusty(fstream &plikTekstowy);
+    int idOstatniegoAdresata;
+    const string nazwaPlikuZAdresatami;
 
-public:
-    int pobierzAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika);
+    bool czyPlikJestPusty(fstream &plikTekstowy);
+    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
+    Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    void dopiszAdresataDoPliku(Adresat adresat);
-    Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 
+public:
+    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI) : nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {} ;
+    int pobierzIdOstatniegoAdresata();
+    void ustawIdOstatniegoAdresata(int noweID);
+
+    void dopiszAdresataDoPliku(Adresat adresat);
+    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(const int idZalogowanegoUzytkownika);
 };
 
 #endif

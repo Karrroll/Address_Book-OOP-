@@ -9,10 +9,8 @@ void KsiazkaAdresowa::wypiszWszytskichUzytkownikow() {
 }
 
 void KsiazkaAdresowa::logowanieUzytkownika() {
-    uzytkownikMenedzer.logowanieUzytkownika();
-
-    adresatMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
-    adresatMenedzer.pobierzAdresatowZalogowanegoUzytkownikaZPliku();
+    uzytkownikMenedzer.logowanieUzytkownika(adresatMenedzer);
+    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 }
 
 void KsiazkaAdresowa::wylogujUzytkownika() {

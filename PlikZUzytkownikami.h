@@ -3,10 +3,9 @@
 
 #include <iostream>
 #include <fstream>
-#include <cstdlib>
 #include <vector>
 
-#include "Uzytkownik.h"         // mozna usunac bo jest guard
+#include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
 
 using namespace std;
@@ -24,5 +23,4 @@ public:
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
     void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy);
 };
-
 #endif

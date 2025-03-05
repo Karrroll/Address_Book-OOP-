@@ -1,10 +1,10 @@
 #ifndef AdresatMenedzer_H
 #define AdresatMenedzer_H
 
-#include "UzytkownikMenedzer.h"
 #include "PlikZAdresatami.h"
 #include "Adresat.h"
 #include "MetodyWczytujace.h"
+#include "MetodyPomocnicze.h"
 
 #include <iostream>
 #include <vector>
@@ -13,19 +13,19 @@ using namespace std;
 
 class AdresatMenedzer {
     int idZalogowanegoUzytkownika;
-    int idOstatniegoAdresata;
     vector <Adresat> adresaci;
+    PlikZAdresatami plikZAdresatami;
+
+    Adresat podajDaneNowegoAdresata();
+    void wyswietlDaneAdresata(Adresat adresat);
 
 public:
-    int pobierzIdOstatniegoAdresata();
-    void ustawIdZalogowanegoUzytkownika(int idAktualnieZalogowanegoUzytkownika);
-    void ustawIdOstatniegoAdresata(int noweIdOstatniegoAdresata);
-    void pobierzAdresatowZalogowanegoUzytkownikaZPliku();
-    void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
-    void wyswietlDaneAdresata(Adresat adresat);
-    void dodajAdresata();
-    Adresat podajDaneNowegoAdresata();
+    AdresatMenedzer() : plikZAdresatami("Adresaci.txt") {};
+    void ustawIdZalogowanegoUzytkownika(int id);
 
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
+    void dodajAdresata();
 };
 
 #endif

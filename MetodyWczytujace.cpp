@@ -1,7 +1,7 @@
 #include "MetodyWczytujace.h"
 
 string MetodyWczytujace::wczytajLinie() {
-    string wejscie = "";                            // do naglowkowego i wprowadzic zabezpieczenia
+    string wejscie = "";
 
     getline(cin, wejscie);
     return wejscie;
@@ -9,7 +9,7 @@ string MetodyWczytujace::wczytajLinie() {
 
 string MetodyWczytujace::pobierzLiczbe(string tekst, int pozycjaZnaku) {
     string liczba = "";
-    while(isdigit(tekst[pozycjaZnaku]) == true) {
+    while(isdigit(tekst[pozycjaZnaku])) {
         liczba += tekst[pozycjaZnaku];
         pozycjaZnaku ++;
     }

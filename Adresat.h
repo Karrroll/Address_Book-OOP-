@@ -9,9 +9,9 @@ class Adresat {
     int id, idUzytkownika;
     string imie, nazwisko, numerTelefonu, email, adres;
 
-public:                                                     //kobstruktor?
+public:
     int pobierzId();
-    int pobierzIdUzytkownika();                             //wyrzuc
+    int pobierzIdUzytkownika();
     string pobierzImie();
     string pobierzNazwisko();
     string pobierzNumerTelefonu();
@@ -28,3 +28,5 @@ public:                                                     //kobstruktor?
 };
 
 #endif
+
+
