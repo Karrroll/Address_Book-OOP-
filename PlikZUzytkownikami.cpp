@@ -71,15 +71,16 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku() {
     fstream plikTekstowy;
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::in);
 
-    if (plikTekstowy.good())
-    {
-        while (getline(plikTekstowy, daneJednegoUzytkownikaOddzielonePionowymiKreskami))
-        {
+    if (plikTekstowy.good()) {
+        while (getline(plikTekstowy, daneJednegoUzytkownikaOddzielonePionowymiKreskami)) {
             uzytkownik = pobierzDaneUzytkownika(daneJednegoUzytkownikaOddzielonePionowymiKreskami);
             uzytkownicy.push_back(uzytkownik);
         }
-
+    } else {
+        if(errno != ENOENT) // jesli == to brak pliku Adresaci i zignoruj. W przeciwnym razie wypisz:
+            cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
     }
+
     plikTekstowy.close();
 
     return uzytkownicy;

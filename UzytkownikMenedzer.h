@@ -9,13 +9,11 @@
 
 using namespace std;
 
-//class AdresatMenedzer;          //zapowiedz klasy i u¿ycie wskaznika w polu klasy. Przez zaleznosci cykliczne?
 class UzytkownikMenedzer {
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
     PlikZUzytkownikami plikZUzytkownikami;
-//    AdresatMenedzer *adresatMenedzer;
-AdresatMenedzer adresatMenedzer;
+    AdresatMenedzer adresatMenedzer;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
