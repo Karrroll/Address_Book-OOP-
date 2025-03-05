@@ -10,23 +10,21 @@ class Adresat {
     string imie, nazwisko, numerTelefonu, email, adres;
 
 public:
-    int pobierzId();
-    int pobierzIdUzytkownika();
-    string pobierzImie();
-    string pobierzNazwisko();
-    string pobierzNumerTelefonu();
-    string pobierzEmail();
-    string pobierzAdres();
+    int pobierzId() { return id; };
+    int pobierzIdUzytkownika() { return idUzytkownika; };
+    string pobierzImie() { return imie; };
+    string pobierzNazwisko() { return nazwisko; };
+    string pobierzNumerTelefonu() { return numerTelefonu; };
+    string pobierzEmail() { return email; };
+    string pobierzAdres() { return adres; };
 
     void ustawId(int noweId);
     void ustawIdUzytkownika(int noweIdUzytkownika);
-    void ustawImie(string noweImie);
-    void ustawNazwisko(string noweNazwisko);
-    void ustawNumerTelefonu(string nowyNumerTelefonu);
-    void ustawEmail(string nowyEmail);
-    void ustawAdres(string nowyAdres);
+    void ustawImie(string noweImie) { imie = noweImie; };
+    void ustawNazwisko(string noweNazwisko) { nazwisko = noweNazwisko; };
+    void ustawNumerTelefonu(string nowyNumerTelefonu) { imie = nowyNumerTelefonu; };
+    void ustawEmail(string nowyEmail) { email = nowyEmail; };
+    void ustawAdres(string nowyAdres) { adres = nowyAdres; };
 };
 
 #endif
-
-
