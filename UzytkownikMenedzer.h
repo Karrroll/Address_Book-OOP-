@@ -13,21 +13,20 @@ class UzytkownikMenedzer {
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
     PlikZUzytkownikami plikZUzytkownikami;
-    AdresatMenedzer adresatMenedzer;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
-    bool czyIstniejeLogin(string login);
+    bool czyIstniejeLogin(const string &login);
 
 public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
-    int pobierzIdZalogowanegoUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika() const { return idZalogowanegoUzytkownika; };
 
     void rejestracjaUzytkownika();
     void wczytajUzytkownikowZPliku();
     void wypiszWszytskichUzytkownikow();
     void logowanieUzytkownika(AdresatMenedzer &adresatMenedzer);
-    void wylogujUzytkownika();
+    void wylogujUzytkownika(AdresatMenedzer &adresatMenedzer);
     void zmianaHaslaZalogowanegoUzytkownika();
 };
 

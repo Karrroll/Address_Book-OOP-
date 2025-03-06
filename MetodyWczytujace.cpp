@@ -7,7 +7,7 @@ string MetodyWczytujace::wczytajLinie() {
     return wejscie;
 }
 
-string MetodyWczytujace::pobierzLiczbe(string tekst, int pozycjaZnaku) {
+string MetodyWczytujace::pobierzLiczbe(const string &tekst, int &pozycjaZnaku) {
     string liczba = "";
     while(isdigit(tekst[pozycjaZnaku])) {
         liczba += tekst[pozycjaZnaku];

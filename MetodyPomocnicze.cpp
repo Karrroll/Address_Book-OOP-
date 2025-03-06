@@ -2,14 +2,14 @@
 
 using namespace std;
 
-string MetodyPomocnicze::konwerjsaIntNaString(int liczba) {
+string MetodyPomocnicze::konwerjsaIntNaString(const int &liczba) {
     ostringstream ss;
     ss << liczba;
     string str = ss.str();
     return str;
 }
 
-int MetodyPomocnicze::konwersjaStringNaInt(string liczba) {
+int MetodyPomocnicze::konwersjaStringNaInt(const string &liczba) {
     int liczbaInt;
     istringstream iss(liczba);
     iss >> liczbaInt;
@@ -23,4 +23,13 @@ string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst
         tekst[0] = toupper(tekst[0]);
     }
     return tekst;
+}
+
+bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy) {
+    plikTekstowy.seekg(0, ios::end);
+
+    if (plikTekstowy.tellg() == 0)
+        return true;
+    else
+        return false;
 }

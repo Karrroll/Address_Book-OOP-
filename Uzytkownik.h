@@ -10,13 +10,13 @@ class Uzytkownik {
     string login, haslo;
 
 public:
-    int pobierzId();
-    string pobierzLogin();
-    string pobierzHaslo();
+    int pobierzId() const { return id; };
+    string pobierzLogin() const { return login; };
+    string pobierzHaslo() const { return haslo; };
 
-    void ustawId(int noweId);
-    void ustawLogin(string nowyLogin);
-    void ustawHaslo(string noweHaslo);
+    void ustawId(const int &noweId);
+    void ustawLogin(const string &nowyLogin) { login = nowyLogin; };
+    void ustawHaslo(const string &noweHaslo) { haslo = noweHaslo; };
 };
 
 #endif

@@ -14,7 +14,7 @@ void KsiazkaAdresowa::logowanieUzytkownika() {
 }
 
 void KsiazkaAdresowa::wylogujUzytkownika() {
-    uzytkownikMenedzer.wylogujUzytkownika();
+    uzytkownikMenedzer.wylogujUzytkownika(adresatMenedzer);
 }
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
