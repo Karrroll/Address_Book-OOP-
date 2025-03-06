@@ -10,8 +10,8 @@ using namespace std;
 class MetodyPomocnicze {
 
 public:
-    static string konwerjsaIntNaString(int liczba);
-    static int konwersjaStringNaInt(string liczba);
+    static string konwerjsaIntNaString(const int &liczba);
+    static int konwersjaStringNaInt(const string &liczba);
     static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
 };
 

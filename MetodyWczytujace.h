@@ -6,9 +6,10 @@
 using namespace std;
 
 class MetodyWczytujace {
+
 public:
     static string wczytajLinie();
-    static string pobierzLiczbe(string tekst, int pozycjaZnaku);
+    static string pobierzLiczbe(const string &tekst, int &pozycjaZnaku);
 };
 
 #endif

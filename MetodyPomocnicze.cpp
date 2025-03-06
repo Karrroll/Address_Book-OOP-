@@ -2,14 +2,14 @@
 
 using namespace std;
 
-string MetodyPomocnicze::konwerjsaIntNaString(int liczba) {
+string MetodyPomocnicze::konwerjsaIntNaString(const int &liczba) {
     ostringstream ss;
     ss << liczba;
     string str = ss.str();
     return str;
 }
 
-int MetodyPomocnicze::konwersjaStringNaInt(string liczba) {
+int MetodyPomocnicze::konwersjaStringNaInt(const string &liczba) {
     int liczbaInt;
     istringstream iss(liczba);
     iss >> liczbaInt;
