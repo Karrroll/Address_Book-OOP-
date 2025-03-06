@@ -1,9 +1,5 @@
 #include "UzytkownikMenedzer.h"
 
-int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
-    return idZalogowanegoUzytkownika;
-}
-
 void UzytkownikMenedzer::logowanieUzytkownika(AdresatMenedzer &adresatMenedzer) {
     string login = "", haslo = "";
 
@@ -37,10 +33,11 @@ void UzytkownikMenedzer::logowanieUzytkownika(AdresatMenedzer &adresatMenedzer) 
     return;
 }
 
-void UzytkownikMenedzer::wylogujUzytkownika() {
-    cout << "Zostales wylogowany." << endl;
-
+void UzytkownikMenedzer::wylogujUzytkownika(AdresatMenedzer &adresatMenedzer) {
+    adresatMenedzer.wyczyscVectorAdresaci();
     idZalogowanegoUzytkownika = 0;
+
+    cout << "Zostales wylogowany." << endl;
 }
 
 void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
@@ -50,7 +47,7 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
 
     for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
     {
-        if (itr->pobierzId() == pobierzIdZalogowanegoUzytkownika())                   //przypisz raz i porownuj???
+        if (itr->pobierzId() == pobierzIdZalogowanegoUzytkownika())
         {
             itr->ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
@@ -71,7 +68,7 @@ int UzytkownikMenedzer::pobierzIdNowegoUzytkownika() {
         return uzytkownicy.back().pobierzId() + 1;
 }
 
-bool UzytkownikMenedzer::czyIstniejeLogin(string login) {
+bool UzytkownikMenedzer::czyIstniejeLogin(const string &login) {
     for(size_t i = 0; i < uzytkownicy.size(); i++) {
         if(uzytkownicy[i].pobierzLogin() == login) {
             cout << endl << "Istnieje uzytkownik o takim loginie." << endl;

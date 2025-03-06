@@ -24,17 +24,7 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
     plikTekstowy.close();
 }
 
-bool PlikZUzytkownikami::czyPlikJestPusty() {
-    fstream plikTekstowy;
-    plikTekstowy.seekg(0, ios::end);
-
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
-}
-
-void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
+void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(const Uzytkownik &uzytkownik) {
     string liniaZDanymiUzytkownika = "";
 
     fstream plikTekstowy;
@@ -43,7 +33,7 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
     if (plikTekstowy.good()) {
         liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
 
-        if (czyPlikJestPusty()) {
+        if (MetodyPomocnicze::czyPlikJestPusty(plikTekstowy)) {
             plikTekstowy << liniaZDanymiUzytkownika;
         } else {
             plikTekstowy << endl << liniaZDanymiUzytkownika ;
@@ -53,7 +43,7 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
     plikTekstowy.close();
 }
 
-string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik) {
+string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(const Uzytkownik &uzytkownik) {
     string liniaZDanymiUzytkownika = "";
 
     liniaZDanymiUzytkownika += MetodyPomocnicze::konwerjsaIntNaString(uzytkownik.pobierzId()) + '|';
@@ -77,7 +67,7 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku() {
             uzytkownicy.push_back(uzytkownik);
         }
     } else {
-        if(errno != ENOENT) // jesli == to brak pliku Adresaci i zignoruj. W przeciwnym razie wypisz:
+        if (errno != ENOENT) // jesli == to brak pliku Adresaci i zignoruj. W przeciwnym razie wypisz:
             cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
     }
 
@@ -86,7 +76,7 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku() {
     return uzytkownicy;
 }
 
-Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami)
+Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(const string &daneJednegoUzytkownikaOddzielonePionowymiKreskami)
 {
     Uzytkownik uzytkownik;
     string pojedynczaDanaUzytkownika = "";
@@ -100,7 +90,7 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
         }
         else
         {
-            switch(numerPojedynczejDanejUzytkownika)
+            switch (numerPojedynczejDanejUzytkownika)
             {
             case 1:
                 uzytkownik.ustawId(atoi(pojedynczaDanaUzytkownika.c_str()));

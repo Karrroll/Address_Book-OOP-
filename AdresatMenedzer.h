@@ -17,15 +17,16 @@ class AdresatMenedzer {
     PlikZAdresatami plikZAdresatami;
 
     Adresat podajDaneNowegoAdresata();
-    void wyswietlDaneAdresata(Adresat adresat);
+    void wyswietlDaneAdresata(const Adresat &adresat);
 
 public:
     AdresatMenedzer() : plikZAdresatami("Adresaci.txt") {};
-    void ustawIdZalogowanegoUzytkownika(int id);
+    void ustawIdZalogowanegoUzytkownika(const int id) { idZalogowanegoUzytkownika = id; };
 
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
     void dodajAdresata();
+    void wyczyscVectorAdresaci() { adresaci.clear(); };
 };
 
 #endif
