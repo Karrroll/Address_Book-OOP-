@@ -22,7 +22,7 @@ public:
     void ustawIdUzytkownika(const int &noweIdUzytkownika);
     void ustawImie(const string &noweImie) { imie = noweImie; };
     void ustawNazwisko(const string &noweNazwisko) { nazwisko = noweNazwisko; };
-    void ustawNumerTelefonu(const string &nowyNumerTelefonu) { imie = nowyNumerTelefonu; };
+    void ustawNumerTelefonu(const string &nowyNumerTelefonu) { numerTelefonu = nowyNumerTelefonu; };
     void ustawEmail(const string &nowyEmail) { email = nowyEmail; };
     void ustawAdres(const string &nowyAdres) { adres = nowyAdres; };
 };

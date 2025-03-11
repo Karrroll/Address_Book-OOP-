@@ -12,7 +12,7 @@ using namespace std;
 
 class PlikZAdresatami {
     int idOstatniegoAdresata;
-    const string nazwaPlikuZAdresatami;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
 
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(const Adresat &adresat);
     Adresat pobierzDaneAdresata(const string &daneAdresataOddzielonePionowymiKreskami);
@@ -20,7 +20,7 @@ class PlikZAdresatami {
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(const string &daneJednegoAdresataOddzielonePionowymiKreskami);
 
 public:
-    PlikZAdresatami(string NAZWA_PLIKU_Z_ADRESATAMI) : nazwaPlikuZAdresatami(NAZWA_PLIKU_Z_ADRESATAMI) {} ;
+    PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {} ;
     int pobierzIdOstatniegoAdresata() const { return idOstatniegoAdresata; };
     void ustawIdOstatniegoAdresata(const int &noweId) { idOstatniegoAdresata = noweId; };
 
