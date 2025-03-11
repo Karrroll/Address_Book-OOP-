@@ -19,11 +19,12 @@ class UzytkownikMenedzer {
     bool czyIstniejeLogin(const string &login);
 
 public:
-    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
+    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    };
     int pobierzIdZalogowanegoUzytkownika() const { return idZalogowanegoUzytkownika; };
 
     void rejestracjaUzytkownika();
-    void wczytajUzytkownikowZPliku();
     void wypiszWszytskichUzytkownikow();
     void logowanieUzytkownika(AdresatMenedzer &adresatMenedzer);
     void wylogujUzytkownika(AdresatMenedzer &adresatMenedzer);
