@@ -1,6 +1,6 @@
 #include "UzytkownikMenedzer.h"
 
-void UzytkownikMenedzer::logowanieUzytkownika(AdresatMenedzer &adresatMenedzer) {
+void UzytkownikMenedzer::logowanieUzytkownika() {
     string login = "", haslo = "";
 
     cout << endl << "Podaj login: ";
@@ -14,29 +14,33 @@ void UzytkownikMenedzer::logowanieUzytkownika(AdresatMenedzer &adresatMenedzer) 
                 haslo = MetodyWczytujace::wczytajLinie();
 
                 if (itr->pobierzHaslo() == haslo) {
+                    ustawIdZalogowanegoUzytkownika(itr->pobierzId());
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    adresatMenedzer.ustawIdZalogowanegoUzytkownika(itr->pobierzId());
                     return;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
-            adresatMenedzer.ustawIdZalogowanegoUzytkownika(0);
             return;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-    adresatMenedzer.ustawIdZalogowanegoUzytkownika(0);
     return;
 }
 
-void UzytkownikMenedzer::wylogujUzytkownika(AdresatMenedzer &adresatMenedzer) {
-    adresatMenedzer.wyczyscVectorAdresaci();
-    idZalogowanegoUzytkownika = 0;
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany() {
+    if(idZalogowanegoUzytkownika > 0)
+        return true;
+    else
+        return false;
+}
 
+
+void UzytkownikMenedzer::wylogujUzytkownika() {
+    idZalogowanegoUzytkownika = 0;
     cout << "Zostales wylogowany." << endl;
 }
 

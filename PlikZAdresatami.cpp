@@ -1,11 +1,10 @@
 #include "PlikZAdresatami.h"
 
-vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(const int idZalogowanegoUzytkownika) {
+void PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, const int idZalogowanegoUzytkownika) {
     int idOstatniegoAdresata = 0;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     Adresat adresat;
-    vector <Adresat> adresaci;
 
     fstream plikTekstowy;
     plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
@@ -31,7 +30,7 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
     } else {
         ustawIdOstatniegoAdresata(idOstatniegoAdresata);
     }
-    return adresaci;
+    return;
 }
 
 int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(const string &daneJednegoAdresataOddzielonePionowymiKreskami) {
@@ -87,7 +86,7 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(const string &daneAdresataOddzielon
     return adresat;
 }
 
-void PlikZAdresatami::dopiszAdresataDoPliku(const Adresat &adresat) {
+bool PlikZAdresatami::dopiszAdresataDoPliku(const Adresat &adresat) {
     string liniaZDanymiAdresata = "";
 
     fstream plikTekstowy;
@@ -96,16 +95,16 @@ void PlikZAdresatami::dopiszAdresataDoPliku(const Adresat &adresat) {
     if (plikTekstowy.good()) {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
 
-        if (MetodyPomocnicze::czyPlikJestPusty(plikTekstowy)) {
+        if (MetodyPomocnicze::czyPlikJestPusty(plikTekstowy))
             plikTekstowy << liniaZDanymiAdresata;
-        } else {
+        else
             plikTekstowy << endl << liniaZDanymiAdresata ;
-        }
-    } else {
-        cout << "Nie udalo sie otworzyc pliku i zapisac w nim danych." << endl;
+
+        idOstatniegoAdresata++;
+        plikTekstowy.close();
+        return true;
     }
-    plikTekstowy.close();
-    system("pause");
+    return false;
 }
 
 string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(const Adresat &adresat) {

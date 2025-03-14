@@ -24,8 +24,8 @@ public:
     int pobierzIdOstatniegoAdresata() const { return idOstatniegoAdresata; };
     void ustawIdOstatniegoAdresata(const int &noweId) { idOstatniegoAdresata = noweId; };
 
-    void dopiszAdresataDoPliku(const Adresat &adresat);
-    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(const int idZalogowanegoUzytkownika);
+    bool dopiszAdresataDoPliku(const Adresat &adresat);
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, const int idZalogowanegoUzytkownika);
 };
 
 #endif
