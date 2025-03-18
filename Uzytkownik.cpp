@@ -1,8 +1,8 @@
 #include "Uzytkownik.h"
 
-void Uzytkownik::ustawId(const int &noweId) {
-    if(noweId >= 0)
-        id = noweId;
+void Uzytkownik::ustawId(const int &id) {
+    if(id >= 0)
+        this->id = id;
 }
 
 

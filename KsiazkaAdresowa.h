@@ -14,8 +14,7 @@ class KsiazkaAdresowa {
     const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
-        : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
         adresatMenedzer = NULL;
     };
     ~KsiazkaAdresowa() {
@@ -23,6 +22,7 @@ public:
         adresatMenedzer = NULL;
     };
 
+    bool czyUzytkownikJestZalogowany();
     void rejestracjaUzytkownika();
     void wypiszWszytskichUzytkownikow();
     void logowanieUzytkownika();

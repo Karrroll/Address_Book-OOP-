@@ -1,12 +1,12 @@
 #include "Adresat.h"
 
-void Adresat::ustawId(const int &noweId) {
-    if (noweId >= 0)
-        id = noweId;
+void Adresat::ustawId(const int &id) {
+    if (id >= 0)
+        this->id = id;
 }
 
-void Adresat::ustawIdUzytkownika(const int &noweIdUzytkownika) {
-    if (noweIdUzytkownika >= 0)
-        idUzytkownika = noweIdUzytkownika;
+void Adresat::ustawIdUzytkownika(const int &idUzytkownika) {
+    if (idUzytkownika >= 0)
+        this->idUzytkownika = idUzytkownika;
 }
 

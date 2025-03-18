@@ -20,13 +20,9 @@ class AdresatMenedzer {
     void wyswietlDaneAdresata(const Adresat &adresat);
 
 public:
-    AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
-        : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) {
+    AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika) : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) {
         plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, ID_ZALOGOWANEGO_UZYTKOWNIKA);
     };
-    ~AdresatMenedzer() {
-        adresaci.clear();
-    }
 
     void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
     void dodajAdresata();
