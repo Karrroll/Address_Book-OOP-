@@ -13,6 +13,9 @@ class KsiazkaAdresowa {
     AdresatMenedzer *adresatMenedzer;
     const string NAZWA_PLIKU_Z_ADRESATAMI;
 
+    void wyswietlMenuGlowne();
+    void wyswietlMenuUzytkownika();
+
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
         adresatMenedzer = NULL;
@@ -22,6 +25,8 @@ public:
         adresatMenedzer = NULL;
     };
 
+    int wybierzOpcjeZMenu(const string &kryterium);
+    int wybierzOpcjeZMenuUzytkownika();
     bool czyUzytkownikJestZalogowany();
     void rejestracjaUzytkownika();
     void wypiszWszytskichUzytkownikow();

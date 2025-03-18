@@ -1,9 +1,5 @@
 #include "AdresatMenedzer.h"
 
-//void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku() {
-//    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-//}
-
 void AdresatMenedzer::wyswietlWszystkichAdresatowZalogowanegoUzytkownika() {
     system("cls");
     if (!adresaci.empty()) {
@@ -14,7 +10,7 @@ void AdresatMenedzer::wyswietlWszystkichAdresatowZalogowanegoUzytkownika() {
         }
         cout << endl;
     } else {
-        cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
+        cout << "Ksiazka adresowa jest pusta." << endl << endl;
     }
     system("pause");
 }
@@ -39,9 +35,9 @@ void AdresatMenedzer::dodajAdresata() {
     adresaci.push_back(adresat);
 
     if(plikZAdresatami.dopiszAdresataDoPliku(adresat))
-        cout << "Adresat zostal dodany" << endl;
+        cout << endl << "Adresat zostal dodany" << endl;
     else
-        cout << "Blad. Nie udalo sie dodac nowego adresata do pliku." << endl;
+        cout << endl << "Blad. Nie udalo sie dodac nowego adresata do pliku." << endl;
 
     system("pause");
 }
