@@ -20,7 +20,7 @@ public:
     string pobierzLogin() const { return login; };
     string pobierzHaslo() const { return haslo; };
 
-    void ustawId(const int &noweId);
+    void ustawId(const int &id);
     void ustawLogin(const string &login) { this->login = login; };
     void ustawHaslo(const string &haslo) { this->haslo = haslo; };
 };

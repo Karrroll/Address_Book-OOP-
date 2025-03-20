@@ -7,11 +7,11 @@ using namespace std;
 int main() {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
 
-    while(true) {
-        if(ksiazkaAdresowa.czyUzytkownikJestZalogowany() == false) {
+    while (true) {
+        if (ksiazkaAdresowa.czyUzytkownikJestZalogowany() == false) {
             int wybranaOpcja = ksiazkaAdresowa.wybierzOpcjeZMenu("MENU_GLOWNE");
 
-            switch(wybranaOpcja) {
+            switch (wybranaOpcja) {
                 case 1: ksiazkaAdresowa.logowanieUzytkownika();     break;
                 case 2: ksiazkaAdresowa.rejestracjaUzytkownika();   break;
                 case 3: exit(0);
@@ -19,6 +19,7 @@ int main() {
                     cout << endl << "Nieprawidlowy wybor! Sprobuj ponownie." << endl;
                     system("pause");
             }
+
         } else {
             int wybranaOpcja = ksiazkaAdresowa.wybierzOpcjeZMenu("MENU_UZYTKOWNIKA");
 
@@ -29,12 +30,13 @@ int main() {
                 case 4: ksiazkaAdresowa.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();   break;
                 case 5: /* ksiazkaAdresowa.edytujAdresata(); */                                 break;
                 case 6: /* ksiazkaAdresowa.usunAdresata(); */                                   break;
-                case 8: /* ksiazkaAdresowa.zmienHaslo(); */                                     break;
+                case 8: ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();                   break;
                 case 9: ksiazkaAdresowa.wylogujUzytkownika();                                   break;
                 default:
                     cout << endl << "Nieprawidlowy wybor! Sprobuj ponownie." << endl;
                     system("pause");
             }
+
         }
     }
     return 0;

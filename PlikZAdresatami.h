@@ -11,8 +11,8 @@
 using namespace std;
 
 class PlikZAdresatami {
-    int idOstatniegoAdresata;
     const string NAZWA_PLIKU_Z_ADRESATAMI;
+    int idOstatniegoAdresata;
 
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(const Adresat &adresat);
     Adresat pobierzDaneAdresata(const string &daneAdresataOddzielonePionowymiKreskami);

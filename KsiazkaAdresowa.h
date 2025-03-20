@@ -25,9 +25,8 @@ public:
         adresatMenedzer = NULL;
     };
 
-    int wybierzOpcjeZMenu(const string &kryterium);
-    int wybierzOpcjeZMenuUzytkownika();
     bool czyUzytkownikJestZalogowany();
+    int wybierzOpcjeZMenu(const string &kryterium);
     void rejestracjaUzytkownika();
     void wypiszWszytskichUzytkownikow();
     void logowanieUzytkownika();

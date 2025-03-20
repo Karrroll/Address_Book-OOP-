@@ -24,8 +24,7 @@ public:
         plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, ID_ZALOGOWANEGO_UZYTKOWNIKA);
     };
 
-    void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
     void dodajAdresata();
+    void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
 };
-
 #endif

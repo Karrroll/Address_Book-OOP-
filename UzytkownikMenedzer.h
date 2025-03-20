@@ -28,10 +28,10 @@ public:
 
     bool czyUzytkownikJestZalogowany();
     void rejestracjaUzytkownika();
-    void wypiszWszytskichUzytkownikow();
     void logowanieUzytkownika();
-    void wylogujUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
+    void wypiszWszytskichUzytkownikow();
+    void wylogujUzytkownika();
 };
 
 #endif

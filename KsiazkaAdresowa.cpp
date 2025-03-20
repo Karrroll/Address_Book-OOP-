@@ -28,6 +28,10 @@ void KsiazkaAdresowa::wyswietlMenuUzytkownika() {
     cout << "Wybierz jedna z opcji:\t";
 }
 
+bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
+    return uzytkownikMenedzer.czyUzytkownikJestZalogowany();
+}
+
 int KsiazkaAdresowa::wybierzOpcjeZMenu(const string &kryterium) {
     if (kryterium == "MENU_GLOWNE")
         wyswietlMenuGlowne();
@@ -39,10 +43,6 @@ int KsiazkaAdresowa::wybierzOpcjeZMenu(const string &kryterium) {
     int wyborUzytkownika = MetodyWczytujace::wczytajLiczbe();
 
     return wyborUzytkownika;
-}
-
-bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
-    return uzytkownikMenedzer.czyUzytkownikJestZalogowany();
 }
 
 void KsiazkaAdresowa::rejestracjaUzytkownika() {
