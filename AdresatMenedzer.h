@@ -25,6 +25,7 @@ public:
     };
 
     void dodajAdresata();
+    void usunAdresata();
     void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
 };
 #endif
