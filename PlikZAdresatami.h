@@ -29,6 +29,7 @@ public:
     bool dopiszAdresataDoPliku(const Adresat &adresat);
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, const int idZalogowanegoUzytkownika);
     void usunAdresataZPlikuTekstowego(const int &idUsuwanegoAdresata, const bool &czyUsuwanyAdresatJestPierwszymAdresatem);
+    void zaktualizujDaneWybranegoAdresata(Adresat &adresat);
 };
 
 #endif

@@ -1,5 +1,23 @@
 #include "AdresatMenedzer.h"
 
+char AdresatMenedzer::wybierzOpcjeZMenuEdycja() {
+    char wybor;
+
+    cout << endl << "   >>> MENU  EDYCJA <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Ktore dane zaktualizowac: " << endl;
+    cout << "1 - Imie" << endl;
+    cout << "2 - Nazwisko" << endl;
+    cout << "3 - Numer telefonu" << endl;
+    cout << "4 - Email" << endl;
+    cout << "5 - Adres" << endl;
+    cout << "6 - Powrot " << endl;
+    cout << endl << "Twoj wybor: ";
+    wybor = MetodyWczytujace::wczytajZnak();
+
+    return wybor;
+}
+
 Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
     Adresat adresat;
     string imie = "", nazwisko = "";
@@ -99,6 +117,78 @@ void AdresatMenedzer::usunAdresata() {
     }
 
     return;
+}
+
+void AdresatMenedzer::edytujAdresata() {
+    system("cls");
+    cout << ">>> EDYCJA WYBRANEGO ADRESATA <<<" << endl << endl;
+
+    if (adresaci.empty()) {
+        cout << "Nie mozna edytowac adresatow. Ksiazka Adresaowa jest pusta" << endl << endl;
+        return;
+    }
+
+    Adresat edytowanyAdresat;
+    string nowaZawartosc = "";
+    int idEdytowanegoAdresata = 0;
+
+    idEdytowanegoAdresata = MetodyWczytujace::podajIdWybranegoAdresata();
+
+    char wybor;
+    bool czyIstniejeAdresat = false;
+
+    for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
+        if (itr->pobierzId() == idEdytowanegoAdresata) {
+            czyIstniejeAdresat = true;
+            edytowanyAdresat = *itr;
+            wybor = wybierzOpcjeZMenuEdycja();
+
+            switch (wybor) {
+            case '1':
+                cout << "Podaj nowe imie: ";
+                nowaZawartosc = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyWczytujace::wczytajLinie());
+                edytowanyAdresat.ustawImie(nowaZawartosc);
+                plikZAdresatami.zaktualizujDaneWybranegoAdresata(edytowanyAdresat);
+                itr->ustawImie(edytowanyAdresat.pobierzImie());
+                break;
+            case '2':
+                cout << "Podaj nowe nazwisko: ";
+                nowaZawartosc = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(MetodyWczytujace::wczytajLinie());
+                edytowanyAdresat.ustawNazwisko(nowaZawartosc);
+                plikZAdresatami.zaktualizujDaneWybranegoAdresata(edytowanyAdresat);
+                itr->ustawNazwisko(edytowanyAdresat.pobierzNazwisko());
+                break;
+            case '3':
+                cout << "Podaj nowy numer telefonu: ";
+                edytowanyAdresat.ustawNumerTelefonu(MetodyWczytujace::wczytajLinie());
+                plikZAdresatami.zaktualizujDaneWybranegoAdresata(edytowanyAdresat);
+                itr->ustawNumerTelefonu(edytowanyAdresat.pobierzNumerTelefonu());
+                break;
+            case '4':
+                cout << "Podaj nowy email: ";
+                edytowanyAdresat.ustawEmail(MetodyWczytujace::wczytajLinie());
+                plikZAdresatami.zaktualizujDaneWybranegoAdresata(edytowanyAdresat);
+                itr->ustawEmail(edytowanyAdresat.pobierzEmail());
+                break;
+            case '5':
+                cout << "Podaj nowy adres zamieszkania: ";
+                edytowanyAdresat.ustawAdres(MetodyWczytujace::wczytajLinie());
+                plikZAdresatami.zaktualizujDaneWybranegoAdresata(edytowanyAdresat);
+                itr->ustawAdres(edytowanyAdresat.pobierzAdres());
+                break;
+            case '6':
+                cout << endl << "Powrot do menu uzytkownika" << endl << endl;
+                break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu! Powrot do menu uzytkownika." << endl << endl;
+                break;
+            }
+        }
+    }
+    if (czyIstniejeAdresat == false) {
+        cout << endl << "Nie ma takiego adresata." << endl << endl;
+    }
+    system("pause");
 }
 
 void AdresatMenedzer::wyswietlWszystkichAdresatowZalogowanegoUzytkownika() {

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int _main() {
+int main() {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
 
     while (true) {
@@ -28,7 +28,7 @@ int _main() {
                 case 2: /* ksiazkaAdresowa.wyszukajAdresataPoImieniu(); */                      break;
                 case 3: /* ksiazkaAdresowa.wyszukajAdresataPoNazwisku(); */                     break;
                 case 4: ksiazkaAdresowa.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();   break;
-                case 5: /*ksiazkaAdresowa.edytujAdresata();*/                                   break;
+                case 5: ksiazkaAdresowa.edytujAdresata();                                       break;
                 case 6: ksiazkaAdresowa.usunAdresata();                                         break;
                 case 8: ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();                   break;
                 case 9: ksiazkaAdresowa.wylogujUzytkownika();                                   break;

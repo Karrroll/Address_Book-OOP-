@@ -146,21 +146,72 @@ void PlikZAdresatami::usunAdresataZPlikuTekstowego(const int &idUsuwanegoAdresat
             idAdresataZOdczytywanejLinii = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(liniaZDanymiAdresata);
 
             if (idAdresataZOdczytywanejLinii == idUsuwanegoAdresata) {}
-            else if (numerWczytanejLinii == 1 && idAdresataZOdczytywanejLinii != idUsuwanegoAdresata)
+            else if (numerWczytanejLinii == 1)
                 tymczasowyPlikTekstowy << liniaZDanymiAdresata;
-            else if (numerWczytanejLinii == 2 && czyUsuwanyAdresatJestPierwszymAdresatem == true)
+            else if (numerWczytanejLinii == 2 && tymczasowyPlikTekstowy.tellp() == 0)
                 tymczasowyPlikTekstowy << liniaZDanymiAdresata;
-            else if (numerWczytanejLinii > 2 && czyUsuwanyAdresatJestPierwszymAdresatem == true)
-                tymczasowyPlikTekstowy << endl << liniaZDanymiAdresata;
-            else if (numerWczytanejLinii > 1 && czyUsuwanyAdresatJestPierwszymAdresatem != true)
+            else if (numerWczytanejLinii > 1)
                 tymczasowyPlikTekstowy << endl << liniaZDanymiAdresata;
 
             numerWczytanejLinii++;
         }
+
+
+//            if (idAdresataZOdczytywanejLinii == idUsuwanegoAdresata) {}
+//            else if (numerWczytanejLinii == 1/* && idAdresataZOdczytywanejLinii != idUsuwanegoAdresata*/)
+//                tymczasowyPlikTekstowy << liniaZDanymiAdresata;
+//            else if (numerWczytanejLinii == 2 && czyUsuwanyAdresatJestPierwszymAdresatem == true)
+//                tymczasowyPlikTekstowy << liniaZDanymiAdresata;
+//            else if (numerWczytanejLinii > 2 && czyUsuwanyAdresatJestPierwszymAdresatem == true)
+//                tymczasowyPlikTekstowy << endl << liniaZDanymiAdresata;
+//            else if (numerWczytanejLinii > 1 && czyUsuwanyAdresatJestPierwszymAdresatem != true)
+//                tymczasowyPlikTekstowy << endl << liniaZDanymiAdresata;
+//
+//            numerWczytanejLinii++;
+//        }
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
 
         usunPlik(NAZWA_PLIKU_Z_ADRESATAMI);
         zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, NAZWA_PLIKU_Z_ADRESATAMI);
     }
+}
+
+void PlikZAdresatami::zaktualizujDaneWybranegoAdresata(Adresat &adresat) {
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    string nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
+
+    int numerWczytanejLinii = 1;
+    string wczytanaLinia = "";
+    string liniaZDanymiAdresata = "";
+
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
+
+    if (odczytywanyPlikTekstowy.good() == true) {
+        while (getline(odczytywanyPlikTekstowy, wczytanaLinia)) {
+
+            if (pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia) == adresat.pobierzId()) {
+                liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+
+                if (numerWczytanejLinii == 1)
+                    tymczasowyPlikTekstowy << liniaZDanymiAdresata;
+                else if (numerWczytanejLinii > 1)
+                    tymczasowyPlikTekstowy << endl << liniaZDanymiAdresata;
+            } else {
+                if (numerWczytanejLinii == 1)
+                    tymczasowyPlikTekstowy << wczytanaLinia;
+                else if (numerWczytanejLinii > 1)
+                    tymczasowyPlikTekstowy << endl << wczytanaLinia;
+            }
+            numerWczytanejLinii++;
+        }
+        odczytywanyPlikTekstowy.close();
+        tymczasowyPlikTekstowy.close();
+
+        usunPlik(NAZWA_PLIKU_Z_ADRESATAMI);
+        zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, NAZWA_PLIKU_Z_ADRESATAMI);      //walidacja
+    }
+
+    cout << endl << "Dane zostaly zaktualizowane." << endl << endl;
 }
