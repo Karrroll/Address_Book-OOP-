@@ -54,6 +54,53 @@ void AdresatMenedzer::dodajAdresata() {
     system("pause");
 }
 
+void AdresatMenedzer::usunAdresata() {
+    system("cls");
+    cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
+
+    if (adresaci.empty()) {
+        cout << "Nie mozna usuwac adresatow. Ksiazka Adresaowa jest pusta" << endl << endl;
+        return;
+    }
+
+    int idUsuwanegoAdresata = 0;
+    idUsuwanegoAdresata = MetodyWczytujace::podajIdWybranegoAdresata();
+
+    char znak;
+    bool czyIstniejeAdresat = false;
+    bool czyUsuwanyAdresatJestPierwszymAdresatem = false;
+
+    for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
+        if (itr->pobierzId() == idUsuwanegoAdresata) {
+            czyIstniejeAdresat = true;
+            cout << endl << "Potwierdz naciskajac klawisz 't': ";
+            znak = MetodyWczytujace::wczytajZnak();
+
+            if (znak == 't' || znak == 'T') {
+                if (itr == adresaci.begin())
+                    czyUsuwanyAdresatJestPierwszymAdresatem = true;             // zabezpieczenie gdy pierwszy adresat w pliku ma id > 1
+
+                plikZAdresatami.usunAdresataZPlikuTekstowego(idUsuwanegoAdresata, czyUsuwanyAdresatJestPierwszymAdresatem);
+                adresaci.erase(itr);
+                cout << endl << "Wybrany adresat zostal USUNIETY" << endl;
+                system("pause");
+                return;
+            } else {
+                cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
+                system("pause");
+                return;
+            }
+        }
+    }
+
+    if (czyIstniejeAdresat == false) {
+        cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
+        system("pause");
+    }
+
+    return;
+}
+
 void AdresatMenedzer::wyswietlWszystkichAdresatowZalogowanegoUzytkownika() {
     system("cls");
     if (!adresaci.empty()) {
