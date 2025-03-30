@@ -16,6 +16,7 @@ class AdresatMenedzer {
     const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
     vector <Adresat> adresaci;
 
+    char wybierzOpcjeZMenuEdycja();
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(const Adresat &adresat);
 
@@ -26,6 +27,7 @@ public:
 
     void dodajAdresata();
     void usunAdresata();
+    void edytujAdresata();
     void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
 };
 #endif

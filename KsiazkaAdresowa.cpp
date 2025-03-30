@@ -91,3 +91,10 @@ void KsiazkaAdresowa::usunAdresata() {
     else
         cout << "Nie jestes zalogowany." << endl;
 }
+
+void KsiazkaAdresowa::edytujAdresata() {
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+        adresatMenedzer->edytujAdresata();
+    else
+        cout << "Nie jestes zalogowany." << endl;
+}
