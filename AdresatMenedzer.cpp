@@ -55,6 +55,13 @@ void AdresatMenedzer::wyswietlDaneAdresata(const Adresat &adresat) {
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
 }
 
+void AdresatMenedzer::wyswietlIloscWyszukanychAdresatow(const int &iloscAdresatow) {
+    if (iloscAdresatow == 0)
+        cout << endl << "W ksiazce adresowej nie ma adresatow z tymi danymi." << endl << endl;
+    else
+        cout << endl << "Ilosc adresatow w ksiazce adresowej wynosi: " << iloscAdresatow << endl << endl;
+}
+
 void AdresatMenedzer::dodajAdresata() {
     Adresat adresat;
 
@@ -76,10 +83,7 @@ void AdresatMenedzer::usunAdresata() {
     system("cls");
     cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
 
-    if (adresaci.empty()) {
-        cout << "Nie mozna usuwac adresatow. Ksiazka Adresaowa jest pusta" << endl << endl;
-        system("pause");
-    } else {
+    if (!adresaci.empty()) {
         char znak;
         bool czyIstniejeAdresat = false;
         int idUsuwanegoAdresata = 0;
@@ -110,6 +114,9 @@ void AdresatMenedzer::usunAdresata() {
             cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
             system("pause");
         }
+    } else {
+        cout << "Nie mozna usuwac adresatow. Ksiazka Adresaowa jest pusta" << endl << endl;
+        system("pause");
     }
 }
 
@@ -117,9 +124,7 @@ void AdresatMenedzer::edytujAdresata() {
     system("cls");
     cout << ">>> EDYCJA WYBRANEGO ADRESATA <<<" << endl << endl;
 
-    if (adresaci.empty()) {
-        cout << "Nie mozna edytowac adresatow. Ksiazka Adresaowa jest pusta" << endl << endl;
-    } else {
+    if (!adresaci.empty()) {
         char wybor = ' ';
         bool czyIstniejeAdresat = false;
         int idEdytowanegoAdresata = 0;
@@ -173,13 +178,75 @@ void AdresatMenedzer::edytujAdresata() {
             }
         }
 
-        if (czyIstniejeAdresat == false)
+        if (czyIstniejeAdresat == false) {
             cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
-        else
+            system("pause");
+        } else {
             cout << endl << "Dane zostaly zaktualizowane." << endl << endl;
-    }
+            system("pause");
+        }
 
-    system("pause");
+    } else {
+        cout << "Nie mozna edytowac adresatow. Ksiazka Adresaowa jest pusta" << endl << endl;
+        system("pause");
+    }
+}
+
+void AdresatMenedzer::wyszukajAdresataPoImieniu() {
+    system("cls");
+    cout << ">>> WYSZUKIWANIE ADRESATOW PO IMIENIU <<<" << endl << endl;
+
+    if (!adresaci.empty()) {
+        string imiePoszukiwanegoAdresata = "";
+        int iloscAdresatow = 0;
+
+        cout << "Wyszukaj adresatow o imieniu: ";
+        imiePoszukiwanegoAdresata = MetodyWczytujace::wczytajLinie();
+        imiePoszukiwanegoAdresata = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imiePoszukiwanegoAdresata);
+
+        for (vector <Adresat>::iterator  itr = adresaci.begin(); itr != adresaci.end(); itr++) {
+            if (itr->pobierzImie() == imiePoszukiwanegoAdresata) {
+                wyswietlDaneAdresata(*itr);
+                iloscAdresatow++;
+            }
+        }
+
+        wyswietlIloscWyszukanychAdresatow(iloscAdresatow);
+        system("pause");
+
+    } else {
+        cout << endl << "Ksiazka adresowa jest pusta" << endl;
+        system("pause");
+    }
+}
+
+void AdresatMenedzer::wyszukajAdresataPoNazwisku() {
+    system("cls");
+    cout << ">>> WYSZUKIWANIE ADRESATOW O NAZWISKU <<<" << endl << endl;
+
+    if (!adresaci.empty()) {
+        string nazwiskoPoszukiwanegoAdresata;
+        int iloscAdresatow = 0;
+
+
+        cout << "Wyszukaj adresatow o nazwisku: ";
+        nazwiskoPoszukiwanegoAdresata = MetodyWczytujace::wczytajLinie();
+        nazwiskoPoszukiwanegoAdresata = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwiskoPoszukiwanegoAdresata);
+
+        for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
+            if (itr->pobierzNazwisko() == nazwiskoPoszukiwanegoAdresata) {
+                wyswietlDaneAdresata(*itr);
+                iloscAdresatow++;
+            }
+        }
+
+        wyswietlIloscWyszukanychAdresatow(iloscAdresatow);
+        system("pause");
+
+    } else {
+        cout << endl << "Ksiazka adresowa jest pusta." << endl;
+        system("pause");
+    }
 }
 
 void AdresatMenedzer::wyswietlWszystkichAdresatowZalogowanegoUzytkownika() {

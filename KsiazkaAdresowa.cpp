@@ -98,3 +98,17 @@ void KsiazkaAdresowa::edytujAdresata() {
     else
         cout << "Nie jestes zalogowany." << endl;
 }
+
+void KsiazkaAdresowa::wyszukajAdresataPoImieniu() {
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+        adresatMenedzer->wyszukajAdresataPoImieniu();
+    else
+        cout << "Nie jestes zalogowany." << endl;
+}
+
+void KsiazkaAdresowa::wyszukajAdresataPoNazwisku() {
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+        adresatMenedzer->wyszukajAdresataPoNazwisku();
+    else
+        cout << "Nie jestes zalogowany." << endl;
+}

@@ -25,8 +25,8 @@ int main() {
 
             switch (wybranaOpcja) {
                 case 1: ksiazkaAdresowa.dodajAdresata();                                        break;
-                case 2: /* ksiazkaAdresowa.wyszukajAdresataPoImieniu(); */                      break;
-                case 3: /* ksiazkaAdresowa.wyszukajAdresataPoNazwisku(); */                     break;
+                case 2: ksiazkaAdresowa.wyszukajAdresataPoImieniu();                            break;
+                case 3: ksiazkaAdresowa.wyszukajAdresataPoNazwisku();                           break;
                 case 4: ksiazkaAdresowa.wyswietlWszystkichAdresatowZalogowanegoUzytkownika();   break;
                 case 5: ksiazkaAdresowa.edytujAdresata();                                       break;
                 case 6: ksiazkaAdresowa.usunAdresata();                                         break;
@@ -41,4 +41,3 @@ int main() {
     }
     return 0;
 }
-
