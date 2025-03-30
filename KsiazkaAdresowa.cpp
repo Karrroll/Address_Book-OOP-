@@ -105,3 +105,10 @@ void KsiazkaAdresowa::wyszukajAdresataPoImieniu() {
     else
         cout << "Nie jestes zalogowany." << endl;
 }
+
+void KsiazkaAdresowa::wyszukajAdresataPoNazwisku() {
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+        adresatMenedzer->wyszukajAdresataPoNazwisku();
+    else
+        cout << "Nie jestes zalogowany." << endl;
+}

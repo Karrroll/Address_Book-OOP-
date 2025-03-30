@@ -220,6 +220,35 @@ void AdresatMenedzer::wyszukajAdresataPoImieniu() {
     }
 }
 
+void AdresatMenedzer::wyszukajAdresataPoNazwisku() {
+    system("cls");
+    cout << ">>> WYSZUKIWANIE ADRESATOW O NAZWISKU <<<" << endl << endl;
+
+    if (!adresaci.empty()) {
+        string nazwiskoPoszukiwanegoAdresata;
+        int iloscAdresatow = 0;
+
+
+        cout << "Wyszukaj adresatow o nazwisku: ";
+        nazwiskoPoszukiwanegoAdresata = MetodyWczytujace::wczytajLinie();
+        nazwiskoPoszukiwanegoAdresata = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwiskoPoszukiwanegoAdresata);
+
+        for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++) {
+            if (itr->pobierzNazwisko() == nazwiskoPoszukiwanegoAdresata) {
+                wyswietlDaneAdresata(*itr);
+                iloscAdresatow++;
+            }
+        }
+
+        wyswietlIloscWyszukanychAdresatow(iloscAdresatow);
+        system("pause");
+
+    } else {
+        cout << endl << "Ksiazka adresowa jest pusta." << endl;
+        system("pause");
+    }
+}
+
 void AdresatMenedzer::wyswietlWszystkichAdresatowZalogowanegoUzytkownika() {
     system("cls");
     if (!adresaci.empty()) {

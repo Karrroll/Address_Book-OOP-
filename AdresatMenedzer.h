@@ -33,4 +33,5 @@ public:
     void wyszukajAdresataPoNazwisku();
     void wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
 };
+
 #endif
