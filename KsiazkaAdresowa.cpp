@@ -40,7 +40,7 @@ int KsiazkaAdresowa::wybierzOpcjeZMenu(const string &kryterium) {
     else
         return 0;
 
-    int wyborUzytkownika = MetodyWczytujace::wczytajLiczbe();
+    int wyborUzytkownika = MetodyWczytujace::wczytajLiczbeCalkowita();
 
     return wyborUzytkownika;
 }

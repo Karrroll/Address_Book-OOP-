@@ -14,6 +14,7 @@ public:
         this->nazwaPliku = nazwaPliku;
     }
     string pobierzNazwePliku() const { return nazwaPliku; };
+
     bool czyPlikJestPusty(fstream &plikTekstowy);
 
 };

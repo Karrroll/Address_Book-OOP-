@@ -1,20 +1,5 @@
 #include "MetodyWczytujace.h"
 
-int MetodyWczytujace::wczytajLiczbe() {
-    int liczba = 0;
-    string wejscie = "";
-
-    while(true)    {
-        wejscie = wczytajTekst();
-        stringstream mojStrumien(wejscie);
-
-        if(mojStrumien >> liczba)
-            return liczba;
-        else
-            cout << "To nie jest liczba. Wpisz ponownie!: ";
-    }
-}
-
 string MetodyWczytujace::wczytajTekst() {
     string tekst = "";
 
@@ -34,7 +19,7 @@ string MetodyWczytujace::wczytajLinie() {
     return wejscie;
 }
 
-string MetodyWczytujace::pobierzLiczbe(const string &tekst, int &pozycjaZnaku) {
+string MetodyWczytujace::pobierzLiczbe(const string &tekst, int pozycjaZnaku) {
     string liczba = "";
     while(isdigit(tekst[pozycjaZnaku])) {
         liczba += tekst[pozycjaZnaku];
@@ -44,19 +29,18 @@ string MetodyWczytujace::pobierzLiczbe(const string &tekst, int &pozycjaZnaku) {
 }
 
 int MetodyWczytujace::wczytajLiczbeCalkowita() {
-    string wejscie = "";
     int liczba = 0;
+    string wejscie = "";
 
     while (true) {
         getline(cin, wejscie);
-
         stringstream myStream(wejscie);
-        if (myStream >> liczba)
-            break;
 
-        cout << "To nie jest liczba. Wpisz ponownie." << endl;
+        if (myStream >> liczba)
+            return liczba;
+        else
+            cout << "To nie jest liczba. Wpisz ponownie." << endl;
     }
-    return liczba;
 }
 
 int MetodyWczytujace::podajIdWybranegoAdresata() {
