@@ -4,14 +4,14 @@
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
 #include "MetodyWczytujace.h"
+#include "PlikTekstowy.h"
 
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-class PlikZAdresatami {
-    const string NAZWA_PLIKU_Z_ADRESATAMI;
+class PlikZAdresatami : public PlikTekstowy {
     int idOstatniegoAdresata;
 
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(const Adresat &adresat);
@@ -22,7 +22,7 @@ class PlikZAdresatami {
     void zmienNazwePliku(const string &staraNazwa, const string &nowaNazwa);
 
 public:
-    PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {} ;
+    PlikZAdresatami(string nazwaPlikuZAdresatami) : PlikTekstowy(nazwaPlikuZAdresatami) {};
     int pobierzIdOstatniegoAdresata() const { return idOstatniegoAdresata; };
     void ustawIdOstatniegoAdresata(const int &noweId) { idOstatniegoAdresata = noweId; };
 
