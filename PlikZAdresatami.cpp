@@ -91,7 +91,7 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(const Adresat &adresat) {
         else
             plikTekstowy << endl << liniaZDanymiAdresata ;
 
-        idOstatniegoAdresata++;
+        ustawIdOstatniegoAdresata(pobierzIdOstatniegoAdresata() + 1);
         plikTekstowy.close();
         return true;
     }
