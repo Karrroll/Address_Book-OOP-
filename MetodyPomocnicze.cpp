@@ -2,7 +2,7 @@
 
 using namespace std;
 
-string MetodyPomocnicze::konwerjsaIntNaString(const int &liczba) {
+string MetodyPomocnicze::konwersjaIntNaString(int liczba) {
     ostringstream ss;
     ss << liczba;
     string str = ss.str();

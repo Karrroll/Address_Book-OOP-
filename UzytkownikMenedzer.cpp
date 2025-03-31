@@ -34,10 +34,12 @@ bool UzytkownikMenedzer::czyIstniejeLogin(const string &login) {
 }
 
 bool UzytkownikMenedzer::czyUzytkownikJestZalogowany() {
-    if(idZalogowanegoUzytkownika > 0)
+    if(idZalogowanegoUzytkownika > 0) {
         return true;
-    else
+    } else {
+        cout << "Nie jestes zalogowany." << endl;
         return false;
+    }
 }
 
 void UzytkownikMenedzer::rejestracjaUzytkownika() {

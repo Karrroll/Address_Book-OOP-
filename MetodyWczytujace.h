@@ -9,10 +9,9 @@ using namespace std;
 class MetodyWczytujace {
 
 public:
-    static int wczytajLiczbe();
     static string wczytajTekst();
     static string wczytajLinie();
-    static string pobierzLiczbe(const string &tekst, int &pozycjaZnaku);
+    static string pobierzLiczbe(const string &tekst, int pozycjaZnaku);
     static int wczytajLiczbeCalkowita();
     static int podajIdWybranegoAdresata();
     static char wczytajZnak();

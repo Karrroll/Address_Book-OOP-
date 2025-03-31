@@ -40,7 +40,7 @@ int KsiazkaAdresowa::wybierzOpcjeZMenu(const string &kryterium) {
     else
         return 0;
 
-    int wyborUzytkownika = MetodyWczytujace::wczytajLiczbe();
+    int wyborUzytkownika = MetodyWczytujace::wczytajLiczbeCalkowita();
 
     return wyborUzytkownika;
 }
@@ -56,9 +56,8 @@ void KsiazkaAdresowa::wypiszWszytskichUzytkownikow() {
 void KsiazkaAdresowa::logowanieUzytkownika() {
     uzytkownikMenedzer.logowanieUzytkownika();
 
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
+    if (czyUzytkownikJestZalogowany())
         adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
-    }
 }
 
 void KsiazkaAdresowa::wylogujUzytkownika() {
@@ -72,43 +71,31 @@ void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
 }
 
 void KsiazkaAdresowa::wyswietlWszystkichAdresatowZalogowanegoUzytkownika() {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
         adresatMenedzer->wyswietlWszystkichAdresatowZalogowanegoUzytkownika();
-    else
-        cout << "Brak adresatow do wyswietlenia." << endl;
 }
 
 void KsiazkaAdresowa::dodajAdresata() {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
         adresatMenedzer->dodajAdresata();
-    else
-        cout << "Nie jestes zalogowany." << endl;
 }
 
 void KsiazkaAdresowa::usunAdresata() {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
         adresatMenedzer->usunAdresata();
-    else
-        cout << "Nie jestes zalogowany." << endl;
 }
 
 void KsiazkaAdresowa::edytujAdresata() {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
         adresatMenedzer->edytujAdresata();
-    else
-        cout << "Nie jestes zalogowany." << endl;
 }
 
 void KsiazkaAdresowa::wyszukajAdresataPoImieniu() {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
         adresatMenedzer->wyszukajAdresataPoImieniu();
-    else
-        cout << "Nie jestes zalogowany." << endl;
 }
 
 void KsiazkaAdresowa::wyszukajAdresataPoNazwisku() {
-    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    if (czyUzytkownikJestZalogowany())
         adresatMenedzer->wyszukajAdresataPoNazwisku();
-    else
-        cout << "Nie jestes zalogowany." << endl;
 }
