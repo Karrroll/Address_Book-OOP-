@@ -7,13 +7,12 @@
 using namespace std;
 
 class PlikTekstowy {
-    string nazwaPliku;
+    const string NAZWA_PLIKU;
 
 public:
-    PlikTekstowy(const string &nazwaPliku) {
-        this->nazwaPliku = nazwaPliku;
-    }
-    string pobierzNazwePliku() const { return nazwaPliku; };
+    PlikTekstowy(string &nazwaPliku) : NAZWA_PLIKU(nazwaPliku) {}
+
+    string pobierzNazwePliku() const { return NAZWA_PLIKU; };
 
     bool czyPlikJestPusty(fstream &plikTekstowy);
 
