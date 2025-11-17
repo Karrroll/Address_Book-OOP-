@@ -1,7 +1,13 @@
+#Folders
 bin/
 obj/
 plan/
+
+# Compiled Object files
 Ksiazka_Adresowa_Obiektowo.*
+*.o
+
+#Contact list files
 Uzytkownicy.txt
 Adresaci.txt
 Adresaci_tymczasowo.txt
