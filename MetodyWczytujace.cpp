@@ -1,17 +1,5 @@
 #include "MetodyWczytujace.h"
 
-string MetodyWczytujace::wczytajTekst() {
-    string tekst = "";
-
-    while(true) {
-        getline(cin, tekst);
-        if(tekst.empty())
-            cout << "Pole nie moze byc puste!" << endl;
-        else
-            return tekst;
-    }
-}
-
 string MetodyWczytujace::wczytajLinie() {
     string wejscie = "";
 
